@@ -24,10 +24,19 @@
   }
   .wrap{max-width:720px; margin:0 auto; padding:56px 24px 80px}
   a{color:var(--accent)}
-  header{padding-bottom:26px; border-bottom:1px solid var(--line); margin-bottom:34px}
-  h1{font-size:31px; line-height:1.25; margin:0 0 8px; letter-spacing:-0.03em}
-  .tag{color:var(--muted); font-size:15px; margin:0 0 14px}
-  .meta{font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 14px}
+  header{padding-bottom:26px; border-bottom:1px solid var(--line); margin-bottom:34px;
+         display:flex; gap:22px; align-items:flex-start}
+  .photo{flex:0 0 112px; width:112px; height:auto; border-radius:8px; display:block;
+         border:1px solid var(--line); object-fit:cover}
+  .bio{flex:1; min-width:0; overflow-wrap:anywhere}
+  h1{font-size:29px; line-height:1.2; margin:0 0 12px; letter-spacing:-0.03em}
+  .edu{margin:0 0 12px}
+  .edu-row{display:flex; justify-content:space-between; align-items:baseline;
+           gap:12px; font-size:14.5px; padding:2px 0}
+  .edu-row .school{min-width:0}
+  .edu-row .major{color:var(--muted)}
+  .edu-row .date{color:var(--muted); font-size:13.5px; white-space:nowrap}
+  .meta{font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:4px 14px}
   .meta a{text-decoration:none}
   .meta a:hover{text-decoration:underline}
   .intro{font-size:16.5px; margin:0 0 8px}
@@ -35,11 +44,12 @@
      margin:44px 0 16px; font-weight:600}
   .item{padding:20px 0; border-top:1px solid var(--line)}
   .item:first-of-type{border-top:none; padding-top:4px}
-  .head{display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .head{display:flex; justify-content:space-between; align-items:baseline; gap:4px 12px; flex-wrap:wrap}
+  .head h3{min-width:0; overflow-wrap:break-word}
   h3{font-size:18px; margin:0; letter-spacing:-0.02em}
   .when{font-size:13.5px; color:var(--muted); white-space:nowrap}
   .role{font-size:14px; color:var(--accent); margin-top:3px}
-  .item p{margin:9px 0 0}
+  .item p{margin:9px 0 0; overflow-wrap:break-word}
   ul{margin:9px 0 0; padding-left:19px}
   li{margin-bottom:5px}
   .chips{margin-top:12px; display:flex; flex-wrap:wrap; gap:6px}
@@ -55,8 +65,12 @@
          font-size:13.5px; color:var(--muted)}
   @media (max-width:520px){
     .wrap{padding:38px 18px 60px}
-    h1{font-size:26px}
+    header{gap:16px}
+    .photo{flex:0 0 78px; width:78px}
+    h1{font-size:24px}
     .when{white-space:normal}
+    .edu-row{display:block}
+    .edu-row .date{display:block}
   }
 </style>
 </head>
@@ -64,11 +78,23 @@
 <div class="wrap">
 
 <header>
-  <h1>전성민</h1>
-  <p class="tag">서버와 인프라, 그리고 딥러닝 &nbsp;·&nbsp; 서울대학교 지역시스템공학 · 인공지능 연합전공 &nbsp;·&nbsp; 2027년 2월 졸업예정</p>
-  <div class="meta">
-    <a href="mailto:jsm5792@snu.ac.kr">jsm5792@snu.ac.kr</a>
-    <a href="https://github.com/jsm5792">github.com/jsm5792</a>
+  <img class="photo" src="photo.jpg" alt="전성민" width="360" height="514">
+  <div class="bio">
+    <h1>전성민</h1>
+    <div class="edu">
+      <div class="edu-row">
+        <span class="school">대전과학고등학교</span>
+        <span class="date">2017.03 – 2020.02</span>
+      </div>
+      <div class="edu-row">
+        <span class="school">서울대학교 <span class="major">지역시스템공학 · 연합전공 인공지능</span></span>
+        <span class="date">2020.03 – 2027.02 (예정)</span>
+      </div>
+    </div>
+    <div class="meta">
+      <a href="mailto:jsm5792@snu.ac.kr">jsm5792@snu.ac.kr</a>
+      <a href="https://github.com/jsm5792">github.com/jsm5792</a>
+    </div>
   </div>
 </header>
 
