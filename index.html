@@ -48,7 +48,12 @@
   .head h3{min-width:0; overflow-wrap:break-word}
   h3{font-size:18px; margin:0; letter-spacing:-0.02em}
   .when{font-size:13.5px; color:var(--muted); white-space:nowrap}
-  .role{font-size:14px; color:var(--accent); margin-top:3px}
+  .role{font-size:14px; color:var(--muted); margin-top:3px}
+  .repo{display:inline-flex; align-items:center; gap:5px; margin-top:9px;
+        font-size:13.5px; color:var(--accent); text-decoration:none;
+        border:1px solid var(--line); border-radius:6px; padding:3px 10px}
+  .repo:hover{border-color:var(--accent)}
+  .repo svg{width:13px; height:13px; fill:currentColor; flex:0 0 13px}
   .item p{margin:9px 0 0; overflow-wrap:break-word}
   ul{margin:9px 0 0; padding-left:19px}
   li{margin-bottom:5px}
@@ -78,7 +83,7 @@
 <div class="wrap">
 
 <header>
-  <img class="photo" src="photo.jpg" alt="전성민" width="360" height="514">
+  <img class="photo" src="photo.jpg" alt="전성민" width="360" height="463">
   <div class="bio">
     <h1>전성민</h1>
     <div class="edu">
@@ -101,59 +106,38 @@
 <p class="intro">
 서비스를 만드는 일과 그 서비스를 멈추지 않게 하는 일을 함께 해 왔습니다.
 3인 팀에서 인증·보안과 배포 인프라를 맡아 AWS에서 6개월째 돌아가는 백엔드를 유지하고 있고,
-그 전에는 확산 모델로 생성 결과를 원하는 만큼만 바꾸도록 제약하는 문제와,
+그 전에는 확산 모델로 두 실제 사진 사이에서 구조는 두고 정체성만 바꾸는 문제와,
 모바일 엣지 환경에서 모델을 가볍게 만들어 지연을 줄이는 연구를 다뤘습니다.
 </p>
 
-<h2>프로젝트</h2>
+<h2>활동</h2>
 
 <div class="item">
   <div class="head">
-    <h3>Cellfie — 개인화 피부 코칭 서비스</h3>
-    <span class="when">2026.05 – 진행 중</span>
+    <h3>Multiphysics Structure &amp; Systems Engineering Lab · 학부 인턴</h3>
+    <span class="when">2023.12 – 2024.03</span>
   </div>
-  <div class="role">AI·SW Maestro · 3인 · 담당: 인증·보안 / 배포·운영 인프라 / DB 스키마</div>
-  <p>
-    사진 한 장과 문진으로 피부를 분석해 성분·루틴을 추천하는 모바일 서비스입니다.
-    AWS EC2에 Docker Compose로 다섯 개 컨테이너를 올려 운영 중이고, 저는 모델을 만드는 쪽이 아니라
-    그 모델이 계속 응답하게 만드는 쪽을 맡았습니다.
-  </p>
+  <div class="role">서울대학교</div>
   <ul>
-    <li>JWT 발급·검증, 소셜 로그인 3종, 보안 헤더 필터를 단독 작성. 예외 발생 시 인증을 통과하던 필터를 fail-closed로 수정</li>
-    <li>blue-green 무중단 배포 — 헬스체크를 통과하지 못한 버전은 트래픽을 받지 않습니다. 이 관문이 스키마 오류 두 건을 사용자 도달 전에 차단했습니다</li>
-    <li>GitHub Actions에서 SSH 대신 AWS SSM으로 배포를 트리거. 보안 그룹의 22번 포트를 열지 않기 위한 선택</li>
-    <li>매일 백업 후 복원 무결성까지 검증, 요청 단위 추적 ID로 사용자 제보를 로그에서 역추적</li>
-    <li>초기 21개 테이블 마이그레이션 설계. 운영 프로파일을 스키마 검증 모드로 고정해 코드와 DB가 어긋나면 서버가 기동하지 않도록 구성</li>
+    <li>수문·구조 데이터를 입력으로 홍수 피해 규모를 예측하는 머신러닝 모델 제안</li>
   </ul>
   <div class="chips">
-    <span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">MySQL</span>
-    <span class="chip">Flyway</span><span class="chip">AWS EC2 · S3 · SSM</span><span class="chip">Docker</span>
-    <span class="chip">nginx</span><span class="chip">GitHub Actions</span><span class="chip">FastAPI</span>
+    <span class="chip">Python</span><span class="chip">머신러닝</span>
   </div>
 </div>
 
 <div class="item">
   <div class="head">
-    <h3>생성형 AI 이미지 편집 파이프라인</h3>
-    <span class="when">2025.10 – 2025.12</span>
+    <h3>Networked Computing Lab · 학부 인턴</h3>
+    <span class="when">2024.07 – 2025.02</span>
   </div>
-  <p>
-    실제 사진에서 특정 개념 하나만 교체하고 나머지는 그대로 두는 Stable Diffusion 편집 파이프라인입니다.
-    프롬프트만으로 편집하면 대상 객체와 함께 배경과 구도까지 흔들리는데, 객체의 정체성과 그 객체가 놓인
-    공간 구조가 잠재 공간에서 분리되어 있지 않기 때문입니다.
-  </p>
+  <div class="role">서울대학교</div>
   <ul>
-    <li>Textual Inversion으로 교체할 개념의 임베딩을 학습해 정체성을 별도 토큰으로 분리</li>
-    <li>Null-text Inversion으로 원본을 되돌릴 수 있는 잠재 궤적을 확보해 공간 구조를 보존</li>
-    <li>SLERP 잠재 공간 보간과 어텐션 마스킹으로 편집 영향 범위를 대상 영역에 한정</li>
+    <li>모바일 엣지 GPU 워크로드를 대상으로 모델 이진화 — 연산 정밀도를 낮추며 정확도 손실과 지연 변화를 측정</li>
+    <li>여러 기기를 묶는 모바일 클러스터링, GPU 선점 스케줄링 실험</li>
   </ul>
-  <p>
-    모델이 무언가를 생성하게 만드는 일은 어렵지 않았습니다. 어려웠던 것은 생성 범위를 신뢰할 수 있을 만큼
-    좁히는 일과, 좁혀졌는지를 판단할 기준을 세우는 일이었습니다.
-  </p>
   <div class="chips">
-    <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">Diffusers</span>
-    <span class="chip">Diffusion</span><span class="chip">Attention Masking</span>
+    <span class="chip">모델 경량화</span><span class="chip">GPU 스케줄링</span><span class="chip">엣지 추론</span>
   </div>
 </div>
 
@@ -162,20 +146,16 @@
     <h3>Scheme 인터프리터</h3>
     <span class="when">2024.12</span>
   </div>
-  <p>
-    자료구조 과제로 C++에서 Scheme 인터프리터를 1,000줄 규모로 구현했습니다.
-    입력을 토큰으로 쪼개고, 심볼은 체이닝 해시 테이블에, 리스트는 좌·우 자식 인덱스를 가진 노드 배열에 담아
-    cons 구조를 만든 뒤 eval이 그 배열을 재귀로 타고 내려갑니다.
-  </p>
-  <p>
-    가장 애를 먹은 것은 리스트 안에 리스트가 연달아 오는 입력이었습니다. 재귀로 안쪽을 읽고 돌아오면
-    그 서브트리와 다음 노드를 잇는 링크가 비어 있는데, 재귀 안에서는 뒤에 형제가 더 올지 알 수 없어
-    그 자리에서 채울 수 없었습니다. 돌아온 직후라는 사실을 플래그로 남겨 두었다가 다음 여는 괄호에서
-    이전 부모의 링크를 채우도록 해결했습니다.
-  </p>
+  <div class="role">C++ · 약 1,000줄</div>
+  <ul>
+    <li>토크나이저 → 체이닝 해시 심볼 테이블 → 좌·우 자식 인덱스 노드 배열의 cons 구조 → 재귀 eval</li>
+    <li>리스트가 연달아 중첩될 때 형제 노드를 잇는 링크가 비는 문제를, 재귀 복귀 시점을 플래그로 남겨 다음 여는 괄호에서 부모 링크를 채우는 방식으로 해결</li>
+    <li>define, cons, symbol?, number?, null? 구현 및 입력 문장 복원 출력</li>
+  </ul>
   <div class="chips">
     <span class="chip">C++</span><span class="chip">해시 테이블</span><span class="chip">재귀 파서</span>
   </div>
+  <a class="repo" href="https://github.com/jsm5792/Data_Structure"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>Data_Structure</a>
 </div>
 
 <div class="item">
@@ -183,37 +163,53 @@
     <h3>Quantum AI Contest — 1위</h3>
     <span class="when">2025.07 – 2025.08</span>
   </div>
-  <p>
-    FashionMNIST 분류를 위한 하이브리드 양자·고전 모델을 설계했습니다. 고전 섀도우와 이항정리를 이용해
-    양자 회로 측정으로부터 임의 유리수 α에 대한 Rényi 엔트로피를 추정하고 검증했습니다.
-  </p>
-</div>
-
-<h2>연구 경험</h2>
-
-<div class="item">
-  <div class="head">
-    <h3>Networked Computing Lab · 학부 인턴</h3>
-    <span class="when">2024.07 – 2025.02</span>
+  <ul>
+    <li>FashionMNIST 분류를 위한 하이브리드 양자·고전 모델 설계</li>
+    <li>고전 섀도우와 이항정리를 이용해 양자 회로 측정으로부터 임의 유리수 α에 대한 Rényi 엔트로피 추정 및 검증</li>
+  </ul>
+  <div class="chips">
+    <span class="chip">PyTorch</span><span class="chip">양자 회로</span><span class="chip">엔트로피 추정</span>
   </div>
-  <div class="role">서울대학교</div>
-  <p>
-    모바일 엣지 GPU에서 딥러닝 워크로드를 돌릴 때의 지연과 신뢰성 문제를 다뤘습니다.
-    모델 이진화로 연산 정밀도를 낮추며 정확도 손실을 어디까지 감수할 수 있는지 측정하고,
-    모바일 클러스터링과 GPU 선점 기법을 함께 살폈습니다. 벤치마크에서 괜찮아 보이던 선택이
-    실부하에서 무너지는 경우를 반복해 보았고, 그 차이를 재는 습관이 여기서 생겼습니다.
-  </p>
 </div>
 
 <div class="item">
   <div class="head">
-    <h3>Multiphysics Structure &amp; Systems Engineering Lab · 학부 인턴</h3>
-    <span class="when">2023.12 – 2024.03</span>
+    <h3>생성형 AI 이미지 편집 파이프라인</h3>
+    <span class="when">2025.10 – 2025.12</span>
   </div>
-  <div class="role">서울대학교</div>
-  <p>수문·구조 데이터를 입력으로 홍수 피해 규모를 예측하는 머신러닝 모델을 제안했습니다.</p>
+  <div class="role">4인 팀 프로젝트 · Stable Diffusion v1.4</div>
+  <ul>
+    <li>두 실제 사진에서 소스의 구조(포즈·배경·배치)는 유지한 채 객체 정체성만 참조 이미지의 것으로 교체 — 공간 마스크도 모델 파인튜닝도 없이 텍스트 조건만으로</li>
+    <li><b>Stage 1</b> 마스크드 Textual Inversion — 참조 객체의 정체성을 pseudo-token 임베딩으로 학습. 배경까지 섞이는 문제를 16×16 cross-attention 맵을 임계값 0.3으로 이진화한 마스크로 손실을 공간 가중해 해결</li>
+    <li><b>Stage 2</b> Null-text Inversion — 소스를 CFG 없이 DDIM 역변환한 뒤 타임스텝마다 널텍스트 임베딩을 최적화해 구조를 보존하는 궤적 확보</li>
+    <li><b>Stage 3</b> Soft NTI + Prompt-to-Prompt — 역변환 latent와 랜덤 노이즈를 SLERP로 보간(λ=0.6)해 편집 여지를 만들고, cross-attention은 앞 40% 스텝에서 교체, self-attention은 앞 20%에서 주입해 위치와 레이아웃 유지</li>
+    <li>하이퍼파라미터 24개 조합 그리드 서치, ControlNet과 비교 평가. 이미지 쌍당 2–3분(A100)</li>
+  </ul>
+  <div class="chips">
+    <span class="chip">Python</span><span class="chip">PyTorch</span><span class="chip">Diffusers</span><span class="chip">Stable Diffusion</span><span class="chip">Textual Inversion</span><span class="chip">Null-text Inversion</span><span class="chip">Prompt-to-Prompt</span>
+  </div>
+  <a class="repo" href="https://github.com/jsm5792/DL-project"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>DL-project</a>
 </div>
 
+<div class="item">
+  <div class="head">
+    <h3>Cellfie — 개인화 피부 코칭 서비스</h3>
+    <span class="when">2026.05 – 진행 중</span>
+  </div>
+  <div class="role">AI·SW Maestro · 3인 · 담당: 인증·보안 / 배포·운영 인프라 / DB 스키마</div>
+  <ul>
+    <li>JWT 발급·검증, 소셜 로그인 3종(Google·Kakao·Naver), 보안 헤더 필터 단독 작성. 인증 필터를 fail-closed로 전환</li>
+    <li>blue-green 무중단 배포 — 헬스체크를 통과하지 못하면 트래픽을 전환하지 않음. 스키마 오류 2건을 배포 단계에서 차단</li>
+    <li>GitHub Actions에서 AWS SSM으로 배포 트리거 — 보안 그룹의 SSH 포트를 열지 않기 위한 구성</li>
+    <li>일 단위 백업 후 복원 무결성 검증, 요청 단위 추적 ID를 로그 전 줄에 부착</li>
+    <li>초기 21개 테이블 마이그레이션 설계, 운영 프로파일을 스키마 validate로 고정</li>
+    <li>ONNX 모델을 별도 컨테이너로 서빙하고 가중치를 볼륨 마운트해 재빌드 없이 교체, 추천 서비스 장애 시 폴백 경로 제공</li>
+  </ul>
+  <div class="chips">
+    <span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">MySQL</span><span class="chip">Flyway</span><span class="chip">AWS EC2 · S3 · SSM</span><span class="chip">Docker</span><span class="chip">nginx</span><span class="chip">GitHub Actions</span><span class="chip">ONNX</span>
+  </div>
+  <a class="repo" href="https://github.com/jsm5792/cellfie-contrib"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>cellfie-contrib</a>
+</div>
 <h2>기술</h2>
 <div class="item">
   <ul>
@@ -226,13 +222,9 @@
 
 <h2>링크</h2>
 <div class="links">
-  <a class="link" href="https://github.com/jsm5792/cellfie-contrib">
-    <b>cellfie-contrib</b>
-    <span>Cellfie에서 제가 단독으로 작성한 파일 53개와 커밋 이력</span>
-  </a>
   <a class="link" href="https://github.com/jsm5792">
     <b>github.com/jsm5792</b>
-    <span>자료구조 · 알고리즘 C++ 저장소를 포함한 전체 목록</span>
+    <span>위 저장소와 자료구조 · 알고리즘 C++ 저장소 전체</span>
   </a>
   <a class="link" href="mailto:jsm5792@snu.ac.kr">
     <b>jsm5792@snu.ac.kr</b>
