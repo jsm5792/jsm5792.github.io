@@ -105,9 +105,9 @@
 
 <p class="intro">
 서비스를 만드는 일과 그 서비스를 멈추지 않게 하는 일을 함께 해 왔습니다.
-3인 팀에서 인증·보안과 배포 인프라를 맡아 AWS에서 6개월째 돌아가는 백엔드를 유지하고 있고,
+3인 팀에서 인증·보안과 배포 인프라를 맡아 AWS에서 실제 사용자 대상으로 운영 중인 백엔드를 책임지고 있고,
 그 전에는 확산 모델로 두 실제 사진 사이에서 구조는 두고 정체성만 바꾸는 문제와,
-모바일 엣지 환경에서 모델을 가볍게 만들어 지연을 줄이는 연구를 다뤘습니다.
+모바일 엣지 GPU에서 급한 추론 작업이 실행 중인 작업을 마이크로초 단위로 선점하는 실시간 스케줄링 연구를 다뤘습니다.
 </p>
 
 <h2>활동</h2>
@@ -133,11 +133,12 @@
   </div>
   <div class="role">서울대학교</div>
   <ul>
-    <li>모바일 엣지 GPU 워크로드를 대상으로 모델 이진화 — 연산 정밀도를 낮추며 정확도 손실과 지연 변화를 측정</li>
-    <li>여러 기기를 묶는 모바일 클러스터링, GPU 선점 스케줄링 실험</li>
+    <li>모바일 엣지 GPU에서 지연에 민감한 추론 작업이 실행 중인 작업을 마이크로초 단위로 선점하는 실시간 preemption scheduling 연구</li>
+    <li>선행 연구 Pantheon을 같은 모델·워크로드로 재현한 뒤 reset 기반 preemption을 구현하고 스케줄러 일부를 수정</li>
+    <li>reset 기준값별 선점 지연을 C++·Python으로 측정·분석. early exit과 모델 이진화는 보조 기법으로 적용</li>
   </ul>
   <div class="chips">
-    <span class="chip">모델 경량화</span><span class="chip">GPU 스케줄링</span><span class="chip">엣지 추론</span>
+    <span class="chip">실시간 선점</span><span class="chip">GPU 스케줄링</span><span class="chip">C++</span><span class="chip">엣지 추론</span>
   </div>
 </div>
 
